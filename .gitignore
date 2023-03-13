@@ -1,0 +1,6 @@
+*.zip
+_*
+ado-ad
+ado-ad.exe
+
+.ado-ad.state*
