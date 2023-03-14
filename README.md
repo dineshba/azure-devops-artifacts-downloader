@@ -99,3 +99,4 @@ You want to re-download few artifacts. Then remove the corresponding line in the
 - [ ] Run artifacts in parallel using go routine
 - [ ] New Flag to specify the destination directory
 - [ ] New Flag to print the version of the binary
+- [ ] Add some unit tests and add CI Pipeline
