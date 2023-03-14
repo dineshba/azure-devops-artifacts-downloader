@@ -6,7 +6,7 @@ A tool to download all the aritifacts specified the `azure-pipelines.yaml` and k
 - [Usage example](#usage-example)
   * [Use your existing azure-pipelines yaml](#use-your-existing-azure-pipelines-yaml)
   * [Setup authentication and azure-devops project configuration](#setup-authentication-and-azure-devops-project-configuration)
-  * [Run ado-ad to download the artifacts and put in specified direction](#run-ado-ad-to-download-the-artifacts-and-put-in-specified-direction)
+  * [Run ado-ad to download the artifacts and put in current directory](#run-ado-ad-to-download-the-artifacts-and-put-in-current-directory)
   * [Re-run of ado-ad and forcefully download new artifact](#re-run-of-ado-ad-and-forcefully-download-new-artifact)
 - [TODO](#todo)
 
@@ -41,23 +41,34 @@ resources:
 
 > when branch is not specified, it will download latest successful across all branch (same as ado pipeline agents)
 
-> For testing with artifacts from your branch/PR/buildNumber, edit yaml file and run `ado-ad`
+> For testing with artifacts from your branch/PR/buildNumber, edit yaml file and run below steps
 
 ### Setup authentication and azure-devops project configuration
 Setup 3 environment variables
+
+> You should have PAT token which has access to list builds,builddefinitions and download artifacts
+
+#### For Linux
 ```sh
-export AZURE_DEVOPS_EXT_PAT="your-personal-access-token-xxxxxxxxxxxx"
 export AZURE_DEVOPS_ORG_URL="https://dev.azure.com/your-org-url"
 export AZURE_DEVOPS_PROJECT_NAME="your-project-name"
+export AZURE_DEVOPS_EXT_PAT="your-personal-access-token-xxxxxxxxxxxx"
 ```
-> PAT should have access to list builds,builddefinitions and download artifacts
 
-### Run ado-ad to download the artifacts and put in specified direction
+### For windows
+```pwsh
+$env:AZURE_DEVOPS_ORG_URL = "https://dev.azure.com/your-org-url"
+$env:AZURE_DEVOPS_PROJECT_NAME = "your-project-name"
+$env:AZURE_DEVOPS_EXT_PAT = "your-personal-access-token-xxxxxxxxxxxx"
+```
 
+### Run ado-ad to download the artifacts and put in current directory
+
+#### For Linux
 ```sh
 ./ado-ad azure-pipeline.yaml
 ```
-or
+### For windows
 ```pwsh
 ./ado-ad.exe azure-pipeline.yaml
 ```
@@ -86,3 +97,5 @@ You want to re-download few artifacts. Then remove the corresponding line in the
 - [x] Way to have a downloaded versions state and on running next time, if there is a change, download only the changed artifacts
 - [ ] Download artifacts across multiple projects (now, it is possible only within `AZURE_DEVOPS_PROJECT_NAME` project)
 - [ ] Run artifacts in parallel using go routine
+- [ ] New Flag to specify the destination directory
+- [ ] New Flag to print the version of the binary
