@@ -93,10 +93,9 @@ During next, it will update the artifact of `_pipeline1`
 You want to re-download few artifacts. Then remove the corresponding line in the `.ado-ad.state` file. In next run, it will download the missing artifacts.
 
 ## TODO
-- [x] Way to skip the download of artifact if it is already present
-- [x] Way to have a downloaded versions state and on running next time, if there is a change, download only the changed artifacts
-- [ ] Download artifacts across multiple projects (now, it is possible only within `AZURE_DEVOPS_PROJECT_NAME` project)
+- [ ] Show progress of download (remaining %)
 - [ ] Run artifacts in parallel using go routine
 - [ ] New Flag to specify the destination directory
 - [ ] New Flag to print the version of the binary
 - [ ] Add some unit tests and add CI Pipeline
+- [ ] Download artifacts across multiple projects (now, it is possible only within `AZURE_DEVOPS_PROJECT_NAME` project)
