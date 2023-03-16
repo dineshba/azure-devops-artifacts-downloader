@@ -10,7 +10,7 @@ import (
 	"github.com/microsoft/azure-devops-go-api/azuredevops/v6/build"
 )
 
-var regexForGettingNameOfPipelineFromSource, _ = regexp.Compile("[a-zA-Z.-]*$")
+var regexForGettingNameOfPipelineFromSource, _ = regexp.Compile(`[\ a-zA-Z.-]*$`)
 
 func NewDownloader(adoContext *ado.ADOContext) (*Downloader, error) {
 	client, err := NewClient(adoContext)
