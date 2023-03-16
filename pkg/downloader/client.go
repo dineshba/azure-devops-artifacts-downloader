@@ -74,6 +74,15 @@ func (c *Client) GetArtifactsForDefinition(ctx context.Context, definitionId int
 		return nil, nil, fmt.Errorf("error getting builds: %s", err.Error())
 	}
 
+	if len(builds.Value) == 0 {
+		if pipeline.Version != "" {
+			return nil, nil, fmt.Errorf("no build found for given version %s", pipeline.Version)
+		}
+		if pipeline.Branch != "" {
+			return nil, nil, fmt.Errorf("no build found for branch %s", pipeline.Branch)
+		}
+		return nil, nil, fmt.Errorf("no successful build found for definition %s", pipeline.Pipeline)
+	}
 	matchingBuild := builds.Value[0]
 
 	if downloadedBuildNumber == *matchingBuild.Id {
