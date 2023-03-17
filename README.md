@@ -1,6 +1,6 @@
 # Azure Devops Artifacts Downloader (ado-ad)
 
-A tool to download all the aritifacts specified the `azure-pipelines.yaml` and keep it ready for testing things in local
+A tool to download all the aritifacts specified in `azure-pipelines.yaml` and keep it ready for testing things in local
 
 - [Why do we need this tool](#why-do-we-need-this-tool)
 - [Usage example](#usage-example)
@@ -11,7 +11,7 @@ A tool to download all the aritifacts specified the `azure-pipelines.yaml` and k
 - [TODO](#todo)
 
 ## Why do we need this tool
-- When we want to setup a environment for debugging things in our local machine instead of testing in ado agents
+- When we want to setup an environment for debugging things in our local machine instead of testing in ado agents
 - When we want to test our code with artifacts from multiple pipeline
 - Because it is not part of [azure-pipeline-agent](https://github.com/microsoft/azure-pipelines-agent/issues/2479)
 
