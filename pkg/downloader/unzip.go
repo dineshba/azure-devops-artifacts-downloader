@@ -53,7 +53,7 @@ func CleanupZipFiles(pipelineName string) error {
 func unzip(folderName, fileName string) error {
 	archive, err := zip.OpenReader(filepath.Join(folderName, fileName))
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("error on reading zip file: %s", err.Error())
 	}
 	defer archive.Close()
 
