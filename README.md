@@ -1,6 +1,6 @@
 # Azure Devops Artifacts Downloader (ado-ad)
 
-A tool to download all the aritifacts specified in `azure-pipelines.yaml` and keep it ready for testing things in local
+A tool to download all the artifacts specified in `azure-pipelines.yaml` and keep it ready for testing things in local
 
 - [Why do we need this tool](#why-do-we-need-this-tool)
 - [Usage example](#usage-example)
